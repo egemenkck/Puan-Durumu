@@ -1,23 +1,25 @@
 public class PuanDurumu {
     public static void main(String[] args) {
-        Takim gs = new Takim();
-        Takim fb = new Takim();
-        Takim bjk = new Takim();
-        Takim ts = new Takim();
+        
 
         Takim[] takimlar=new Takim[4];
 
-        takimlar[0]=gs;
-        takimlar[1]=fb;
-        takimlar[2]=bjk;
-        takimlar[3]=ts;
-        for (int i=0;i<=3;i++) {
-            int takim1=4, takim2=3, takim3=2, takim4=1;
+        takimlar[0] = new Takim();
+        takimlar[1] = new Takim();
+        takimlar[2] = new Takim();
+        takimlar[3] = new Takim();
 
-            takimlar[0].attigiGol=takim1;
-            takimlar[1].attigiGol=takim2;
-            takimlar[2].attigiGol=takim3;
-            takimlar[3].attigiGol=takim4;
+        takimlar[0].name="Galatasaray";
+        takimlar[1].name="Fenerbahçe";
+        takimlar[2].name="Beşiktaş";
+        takimlar[3].name="Trabzonspor";
+         
+        for(int i=1;i<=3;i++){
+
+            HaftaninMaclariniGoster(i, takimlar);
+            System.out.println();
+
+            PuanDurumuGoster();
 
         }
 
@@ -29,33 +31,23 @@ public class PuanDurumu {
         System.out.println("*******************************");
         System.out.println("Takım            Attıgı Gol      Yedigi Gol     Puan");
             }
+    
+    public static void HaftaninMaclariniGoster(int i, Takim[]takimlar){
+        if(i==1){
+            System.out.println(i+". Haftanın Maçları Şu Şekilde");
+            System.out.println(takimlar[0].name+ " - " +takimlar[1].name);
+            System.out.println(takimlar[2].name+ " - " +takimlar[3].name);
+        }
+        else if(i==2){
+            System.out.println(i+". Haftanın Maçları Şu Şekilde");
+            System.out.println(takimlar[0].name+ " - " +takimlar[2].name);
+            System.out.println(takimlar[1].name+ " - " +takimlar[3].name);
+        }
+        else if(i==3){
+            System.out.println(i+". Haftanın Maçları Şu Şekilde");
+            System.out.println(takimlar[0].name+ " - " +takimlar[3].name);
+            System.out.println(takimlar[1].name+ " - " +takimlar[2].name);
+            }
+        }
 
-}
-
-public class Takim {
-    int puan=0;
-    int attigiGol=0;
-    int yedigiGol=0;
-
-    public int GolAtti(int gol){
-        attigiGol=attigiGol+gol;
-        return attigiGol;
-    }
-    public int GolYedi(int gol){
-        yedigiGol=yedigiGol+gol;
-        return yedigiGol;
-    }
-    public int PuanAldi(int eklenenPuan){
-        puan=puan+eklenenPuan;
-        return puan;
-    }
-    public void AttigiGolGoster(){
-        System.out.println(attigiGol);
-    }
-    public void YedigiGolGoster(){
-        System.out.println(yedigiGol);
-    }
-    public void PuanGoster(){
-        System.out.println(puan);
-    }
 }
